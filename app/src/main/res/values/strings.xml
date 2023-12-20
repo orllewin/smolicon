@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Smolicon</string>
+    <string name="action_settings">Settings</string>
+    <string name="attribution">Eraser icon by Icon Lauk from the Noun Project\n\nFill icon by Denis Klyuchnikov from the Noun Project</string>
+    <string name="red">Red</string>
+    <string name="green">Green</string>
+    <string name="blue">Blue</string>
+    <string name="apply">Apply</string>
+    <string name="smolicon_by_olab">Smolicon by ÖLAB</string>
+    <string name="close">Close</string>
+</resources>

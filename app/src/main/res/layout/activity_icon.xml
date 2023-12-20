@@ -1,0 +1,176 @@
+<layout>
+
+    <data>
+        <variable
+            name="model"
+            type="oppen.smolicon.IconViewModel" />
+        <import type="android.view.View"/>
+    </data>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".IconActivity">
+
+        <oppen.smolicon.lib.SkissView
+            android:id="@+id/skiss_screen_matrix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true" />
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/button_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/skiss_screen_matrix"
+            tools:showIn="@layout/activity_icon">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_bar_height"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/current_colour_button"
+                    android:layout_width="@dimen/button_diam"
+                    android:layout_height="@dimen/button_diam"
+                    android:layout_gravity="center"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/shape_current_colour_circle"
+                    android:onClick="@{() -> model.showColourPicker()}"
+                    />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_bar_height"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:layout_width="@dimen/button_diam"
+                    android:layout_height="@dimen/button_diam"
+                    android:layout_gravity="center"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/vector_dropper"
+                    android:onClick="@{() -> model.toggleDropper()}"
+                    />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_bar_height"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:layout_width="@dimen/button_diam"
+                    android:layout_height="@dimen/button_diam"
+                    android:layout_gravity="center"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/vector_fill"
+                    android:onClick="@{() -> model.toggleFill()}"
+                    />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_bar_height"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/erase_button"
+                    android:layout_width="@dimen/button_diam"
+                    android:layout_height="@dimen/button_diam"
+                    android:layout_gravity="center"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/vector_eraser"
+                    android:onClick="@{() -> model.toggleEraser()}"
+               />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_bar_height"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:layout_width="@dimen/button_diam"
+                    android:layout_height="@dimen/button_diam"
+                    android:layout_gravity="center"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/vector_grid"
+                    android:onClick="@{() -> model.toggleGrid()}" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_bar_height"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:layout_width="@dimen/button_diam"
+                    android:layout_height="@dimen/button_diam"
+                    android:layout_gravity="center"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/vector_save"
+                    android:onClick="@{() -> model.save()}" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/button_bar">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <oppen.smolicon.lib.SkissView
+                    android:id="@+id/skiss_colour_matrix"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:paddingStart="8dp"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/smolicon_by_olab"  />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/info_button"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="8dp"
+                        android:background="?android:attr/selectableItemBackgroundBorderless"
+                        android:src="@drawable/vector_info"
+                        android:onClick="@{() -> model.showInfo()}"/>
+
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </ScrollView>
+    </RelativeLayout>
+</layout>
